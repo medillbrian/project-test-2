@@ -3,35 +3,30 @@
         <style>
             body {
               background-color: #EEEEEE;
+              border: 1px solid #E0E0E0;
               font-family: 'Open Sans' , sans-serif;
               font-size: 12px;
             }
             
+            #adunit {
+                margin:10px 0px;
+            }
+
             /* p: 30096; i: 22AF6 */
 
             .attribution {
-              padding-right:13px;
+              bottom: 13px;
               color: #7D7D7D;
               font-size: 14px;
               font-weight: bold;
+              position: absolute;
               text-transform: uppercase;
-              text-align:right;
-              
-            }
-            
-            a.body-link {
-                color:#666;
-                text-decoration:none;
             }
 
-            .call-to-action, .client, .body {
-                margin:13px;
-            }
-            
             .title {
-                margin:0px 13px 13px 13px
+              padding: 0 13px 10px 13px;
             }
-            
+
             .title a {
               color: #000;
               font-size: 16px;
@@ -41,17 +36,24 @@
             }
 
             .image {
-              width:40%;
+              display: flex;
+              padding: 13px;
             }
 
             .image img {
+              height: 100%;
+              width: 100%;
+            }
+
+            .image .image-link {
+              height: 100%;
               width: 100%;
             }
 
             .call-to-action {
               background: #47595E;
+              margin: 0 10px 13px 13px;
               padding: 10px 15px;
-              text-align:center;
             }
 
             .call-to-action a {
@@ -63,10 +65,10 @@
             }
 
             .logo {
-              float:left;
-              margin:0 4px 0 0;
-              width:39px;
-              height:39;
+              float: left;
+              padding: 0 4px 13px 0;
+              width: 39px;
+              height:39px;
             }
 
             .logo img {
@@ -74,8 +76,13 @@
               width: 100%;
             }
 
+            .logo .logo-link {
+              height: 100%;
+              width: 100%;
+            }
+
             .advertiser {
-              padding-top: 20px;
+              padding: 0 0 6px 13px;
             }
 
             .advertiser a {
@@ -85,47 +92,98 @@
               text-decoration: none;
               text-transform: uppercase;
             }
-            
-            #adunit {
-                display: flex;
-                flex-direction:row;
-                flex-wrap:nowrap;
-                max-width:700px;
-            }
-                
-            .second {
-                width:60%;
+
+            @media all and (min-width: 481px) {
+
+            .attribution {
+              font-size: 12px;
             }
 
-            @media all and (max-width: 650px) {
-                #adunit {
-                display: flex;
-                flex-direction:column;
-                }
-                
-                .title, .call-to-action, .client, .body {
-                    margin:13px 0px;
-                }
-                
-                .image, .second {
-                    width:100%;
-                }
-                
-                .attribution {
-                  font-size: 12px;
-                }
+            .image {
+              display: flex;
+              padding: 13px;
+              width: 43%;
+            }
 
-                .advertiser a { 
-                  font-size: 13px;
-                }
+            .advertiser {
+              padding: 10px 0 3px 13px;
+            }
 
-                .call-to-action a {
-                  font-size: 12px;
-                }
+            .advertiser a {
+              font-size: 13px;
+            }
 
-                .logo {
-                  width: 31px;
-                }  
+            .title {
+              padding: 0 13px 7px 13px;
+            }
+
+            .title a {
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 18px;
+            }
+
+            .call-to-action {
+              margin: 0 10px 13px 0;
+              padding: 7px 10px;
+            }
+
+            .call-to-action a {
+              font-size: 12px;
+            }
+
+            .logo {
+              float: left;
+              padding: 0 4px 13px 0;
+              width: 31px;
+            }  
+
+            }
+
+            @media all and (min-width: 600px) {
+
+            .attribution {
+              font-size: 13px;
+            }
+
+            .image {
+              display: flex;
+              float: left;
+              padding: 13px;
+              width: 43%;
+            }
+
+            .advertiser {
+              padding: 13px 0 5px 13px;
+            }
+
+            .advertiser a {
+              font-size: 14px;
+            }
+
+            .title {
+              padding: 0 13px 10px 13px;
+            }
+
+            .title a {
+              font-size: 16px;
+              line-height: 21px;
+            }
+
+            .call-to-action {
+              margin: 0 10px 13px 0;
+              padding: 7px 10px;
+            }
+
+            .call-to-action a {
+              font-size: 14px;
+            }
+
+            .logo {
+              float: left;
+              padding: 0 4px 13px 0;
+              width: 33px;
+            }  
 
             }
 
@@ -136,31 +194,32 @@
     </head>
     <body>
         <div id='adunit' style='overflow: hidden;'>
+            <div class='attribution'>Ad</div>
             <img src='[%Thirdpartyimpressiontracker%]' style='display:none'>
             <div class='image'>
-                <a class='image-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'><img src='https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKDbpNbYqgEQARgBMgjGnjX2BfBxuw'></a>
+                <a class='image-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'><img src='[%Image%]'></a>
             </div>
-            <div class="second">
+            <div>
                 <div class='title'>
-                    <a class='title-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>This Site Finds the Top 3 Financial Advisors Near You</a>
+                    <a class='title-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>[%Headline%]</a>
                 </div>
                 <div class='body'>
-                    <a class='body-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>Take this quiz to find your top 3 local matches. Time to get serious about your retirement plan.</a>
+                    <a class='body-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>[%Body%]</a>
                 </div>
-                <div class="client">
+                <div>
                     <div class='logo'>
-                        <a class='logo-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'><img src='https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKDb5PWlggEQARgBMgiaANZ1_pCIEQ'></a>
+                        <a class='logo-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'><img src='[%Secondaryimage%]'></a>
                     </div>
                     <div class='advertiser'>
-                        <a class='advertiser-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>SmartAsset</a>
+                        <a class='advertiser-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>[%Attribution%]</a>
                     </div>
-
                 </div>
                 <div class='call-to-action'>
-                    <a class='call-to-action-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>Continue Reading</a>
+                    <a class='call-to-action-link' href='%%CLICK_URL_UNESC%%[%Thirdpartyclicktracker%]%%DEST_URL%%' target='_top'>[%Calltoaction%]</a>
                 </div>
-                <div class='attribution'>Ad</div>   
             </div>
         </div>
     </body>
 </html>
+
+
