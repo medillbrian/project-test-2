@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <h1>Page 2</h1>
+        <div id="answer1"></div>
+        <div id="answer2"></div>
+        <div id="answer3"></div>
+        <div id="answer4"></div>
+        <div id="sampleURL"></div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+
+                // will extract values 
+                function getUrlVars() {
+                    var vars = {};
+                    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                        vars[key] = value;
+                    });
+                    return vars;
+                }                
+                
+                // this function allows us to pass a default value of 0 if no answer has been provided
+                function getUrlParam(parameter, defaultvalue){
+                    var urlparameter = defaultvalue;
+                    if(window.location.href.indexOf(parameter) > -1){
+                        console.log(parameter+" "+window.location.href.indexOf(parameter));
+                        urlparameter = getUrlVars()[parameter];
+                    }
+                    return urlparameter;
+                }
+
+                var page1 = getUrlParam('p1','0'); // store the answer to page 1 
+                var page2 = getUrlParam('p2','0'); // store the answer to page 2
+                var page3 = getUrlParam('p3','0'); // store the answer to page 3
+                var page4 = getUrlParam('p4','0'); // store the answer to page 4
+                
+                var sampleURL = `page1.html?p1=${page1}&p2=${page2}&p3=${page3}&p4=${page4}`; // sample URL to prev page
+                
+                $("#answer1").text("Page 1: "+ page1); // show the stored value for page1, if any. Defaults to "0"
+                $("#answer2").text("Page 2: "+page2); // show the stored value for page2, if any. Defaults to "0"
+                $("#answer3").text("Page 3: "+page3); // show the stored value for page3, if any. Defaults to "0"
+                $("#answer4").text("Page 4: "+page4); // show the stored value for page4, if any. Defaults to "0"
+                $("#sampleURL").html("Prev Page: <a href='"+sampleURL+"'>"+sampleURL+"</a>"); // link to prev page
+                
+            });
+
+        </script>
+    </body>
+</html>
